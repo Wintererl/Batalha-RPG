@@ -1,3 +1,12 @@
+# >>>>>>>LEIA<<<<<<
+# Esse é apenas um protótipo inicial que eu fiz do programa.
+# Ele é completamente À PARTE do programa principal.
+# Fiz ele antes de aprender POO. O "batalha-rpg" veio como uma versão 2.0 desse projeto.
+# Resolvi deixá-lo aqui de qualquer forma.
+# Este programa é perfeitamente funcional, aliás.
+# --------------------------
+
+
 import random as r
 from time import sleep
 

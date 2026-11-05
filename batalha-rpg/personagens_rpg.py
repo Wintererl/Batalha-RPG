@@ -3,15 +3,11 @@ from random import randint, choice
 from rich import print
 
 class Personagem(ABC):
-    golpes = [
-        ['Lâmina Giratória', 'Assalto Feroz', 'Corte de Sangue'],
-        ['Sabre de Luz', 'Julgamento', 'Fúria da Natureza']
-    ]
     def __init__(self, nome, vida):
         self.nome = nome
         self.vida = vida
         self.golpes = self.__class__.golpes
-        self.vida_inicial = self.vida
+        self.vida_inicial = vida
         
     def atacar(self, alvo, forca = 100):
         print(f'[green]{self.nome}[/]([cyan]{self.vida}[/]) atacou [red]{alvo.nome}[/]([cyan]{alvo.vida}[/]) com um ', end='')
@@ -32,10 +28,11 @@ class Personagem(ABC):
     
 
 class Guerreiro(Personagem):
+    golpes = ['Lâmina Giratória', 'Assalto Feroz', 'Corte de Sangue']
+    
     def __init__(self, nome, vida):
         super().__init__(nome, vida)
-        self.golpes = ['Lâmina Giratória', 'Assalto Feroz', 'Corte de Sangue']
-        
+        self.dmg = 80
     
     def curar(self):
         cura = randint(5, 100)
@@ -54,10 +51,12 @@ class Guerreiro(Personagem):
     
     
 class Mago(Personagem):
+    golpes = ['Sabre de Luz', 'Julgamento', 'Fúria da Natureza'] 
+    
     def __init__(self, nome, vida):
         super().__init__(nome, vida)
-        self.golpes = ['Sabre de Luz', 'Julgamento', 'Fúria da Natureza'] 
-                
+        self.dmg = 100
+        
     def curar(self):
         cura = randint(5, 100)
         self.vida += cura
